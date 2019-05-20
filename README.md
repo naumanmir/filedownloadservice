@@ -1,10 +1,11 @@
-# filedownloadservice
-# filedownloadservice
+# File Download Service
+
+Downloads files in background
+
+
+# Prerequisites
 
 Add this in your project root build.gradle file:
-
-Prerequisites
-
 allprojects {
 	repositories {
 		...
@@ -12,7 +13,8 @@ allprojects {
 	}
 }
 
-Dependency
+# Dependency
+
 Add this to your app's level build.gradle file :
 
 dependencies {
