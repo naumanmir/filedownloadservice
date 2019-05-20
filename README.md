@@ -32,13 +32,31 @@ Add this to your app's level build.gradle file :
 
 # Usage
 
-
-Firstly, give internet and write storage permissions and declare the service in AndroidManifest.xml.
+Edit your AndroidManifest.xml as below : 
 
 	<uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	
+	<application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
 
-    <service android:name="com.downloadservice.filedownloadservice.service.DownloadService"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+	
+		<service android:name="com.downloadservice.filedownloadservice.service.DownloadService"/>
+	
+    </application>
+
+    
 
 NOTE: Don't forget to add runtime write storage permissions if you are running it on Marshmallow and above otherwise your app can crash or it can give download error.
 
@@ -60,5 +78,7 @@ Now just call
                 fileName
             )
 
-and your file will be downloaded to the specified path.
+initDownload method takes four paramters i.e. context of your activity or fragment, url of the file, path of the folder where the file is to be downloaded and file name with correct extension.
+
+Now, your file will be downloaded to the specified path.
 
