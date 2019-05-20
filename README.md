@@ -27,7 +27,7 @@ Add this to your app's level build.gradle file :
 
 	dependencies {
 	...
-	implementation 'com.github.naumanmir:filedownloadservice:1.0'
+	implementation 'com.github.naumanmir:filedownloadservice:1.1'
 	}
 
 # Usage
