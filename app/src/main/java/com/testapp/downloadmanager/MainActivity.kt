@@ -25,6 +25,7 @@ import com.testapp.downloadmanager.async_download.AsyncDownload
 import com.testapp.downloadmanager.manager.DownloadManager
 import com.testapp.downloadmanager.service.DownloadService
 import android.webkit.MimeTypeMap
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -33,20 +34,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val folder = File(Environment.getExternalStorageDirectory().toString() + "/" + "HelloWorld")
-        if (!folder.exists()) {
-            folder.mkdirs()
-        }
-        val fileName = SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(Date()) + ".mp3"
+        btn?.setOnClickListener {
+            val folder = File(Environment.getExternalStorageDirectory().toString() + "/" + "HelloWorld")
+            if (!folder.exists()) {
+                folder.mkdirs()
+            }
+            val fileName = SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(Date()) + ".mp3"
 
-        for (i in 1..2) {
-            DownloadManager.initDownload(
-                this,
-                "https://sample-videos.com/audio/mp3/wave.mp3",
-                folder.absolutePath,
-                fileName
-            )
+            for (i in 1..2) {
+                DownloadManager.initDownload(
+                    this,
+                    "https://sample-videos.com/audio/mp3/wave.mp3",
+                    folder.absolutePath,
+                    fileName
+                )
+            }
         }
-
     }
 }
