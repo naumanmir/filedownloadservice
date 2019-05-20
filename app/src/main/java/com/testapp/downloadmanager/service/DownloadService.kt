@@ -13,6 +13,8 @@ import com.testapp.downloadmanager.R
 import com.testapp.downloadmanager.async_download.AsyncDownload
 import com.testapp.downloadmanager.manager.DownloadManager
 import kotlin.collections.ArrayList
+import android.util.Log
+
 
 class DownloadService : Service() {
     private var notificationBuilder: NotificationCompat.Builder? = null
@@ -45,7 +47,7 @@ class DownloadService : Service() {
                     NOTIFICATION_ID = DownloadManager.indexToDownload
                     notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
                     notificationBuilder = NotificationCompat.Builder(this, NOTIFICATION_CHANNEL)
-                        .setSmallIcon(R.drawable.download)
+                        .setSmallIcon(com.testapp.downloadmanager.R.drawable.download)
                         .setContentText("please wait...")
                         .setContentTitle("Downloading")
                         .setAutoCancel(false)
@@ -72,6 +74,15 @@ class DownloadService : Service() {
                         notificationBuilder?.setContentTitle(fileToDownload.fileName)
                         notificationBuilder?.setContentText(i.toString() + "%")
                         notificationManager?.notify(NOTIFICATION_ID, notificationBuilder?.build())
+                        if ( i == 100){
+                            try {
+                                // Sleep for 1 second
+                                Thread.sleep((1 * 1200).toLong())
+                            } catch (e: InterruptedException) {
+                                Log.d("TAG", "sleep failure")
+                            }
+
+                        }
                     }, success = { b ->
                         notificationManager?.cancel(999)
                         if (b) {

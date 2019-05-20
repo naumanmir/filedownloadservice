@@ -32,13 +32,17 @@ Add this to your app's level build.gradle file :
 
 # Usage
 
-First create a folder where you want your file to be downloaded and also create a file name for the file to download.
-Also give internet and write storage permission in AndroidManifest.xml;
+
+Firstly, give internet and write storage permissions and declare the service in AndroidManifest.xml.
 
 	<uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
-NOTE: Don't forget to add runtime write storage permissions if you are running it on Marshmallow and above otherwise your app can crash.
+    <service android:name="com.downloadservice.filedownloadservice.service.DownloadService"/>
+
+NOTE: Don't forget to add runtime write storage permissions if you are running it on Marshmallow and above otherwise your app can crash or it can give download error.
+
+First create a folder where you want your file to be downloaded and also create a file name for the file to download.
 
 	val folder = File(Environment.getExternalStorageDirectory().toString() + "/" + "HelloWorld")
         if (!folder.exists()) {
