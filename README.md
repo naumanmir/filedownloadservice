@@ -47,7 +47,7 @@ NOTE: Don't forget to add runtime write storage permissions if you are running i
 
 Now just call
 	
-	DownloadManager.initDownload(
+	FileDownloadManager.initDownload(
                 this,
                 urlOfTheFile,
                 folder.absolutePath,
