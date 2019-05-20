@@ -9,6 +9,7 @@ import android.graphics.Color
 import android.os.Build
 import android.os.IBinder
 import android.support.v4.app.NotificationCompat
+import android.util.Log
 import com.downloadservice.filedownloadservice.R
 import com.downloadservice.filedownloadservice.async_download.AsyncDownload
 import com.downloadservice.filedownloadservice.manager.FileDownloadManager
@@ -72,6 +73,14 @@ class DownloadService : Service() {
                         notificationBuilder?.setContentTitle(fileToDownload.fileName)
                         notificationBuilder?.setContentText(i.toString() + "%")
                         notificationManager?.notify(NOTIFICATION_ID, notificationBuilder?.build())
+                        if ( i == 100){
+                            try {
+                                // Sleep for 1 second
+                                Thread.sleep((1 * 1200).toLong())
+                            } catch (e: InterruptedException) {
+                                Log.d("TAG", "sleep failure")
+                            }
+                        }
                     }, success = { b ->
                         notificationManager?.cancel(999)
                         if (b) {
