@@ -1,5 +1,7 @@
 # File Download Service
 
+[![](https://jitpack.io/v/naumanmir/filedownloadservice.svg)](https://jitpack.io/#naumanmir/filedownloadservice)
+
 Download's files in background.
 Written in kotlin.
 
