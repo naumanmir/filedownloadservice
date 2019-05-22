@@ -1,6 +1,7 @@
 # File Download Service
 
-[![](https://jitpack.io/v/naumanmir/filedownloadservice.svg)](https://jitpack.io/#naumanmir/filedownloadservice)   [![Tweet](https://github.com/naumanmir/filedownloadservice)
+[![](https://jitpack.io/v/naumanmir/filedownloadservice.svg)](https://jitpack.io/#naumanmir/filedownloadservice)   [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Get%20over%20170%20free%20design%20blocks%20based%20on%20Bootstrap%204&url=https://github.com/naumanmir/filedownloadservice)
+
 
 Download's files in background.
 Written in kotlin.
